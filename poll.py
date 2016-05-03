@@ -15,7 +15,7 @@ twiits = twitter.search(q='#tornientaisto', count=100)
 
 good_twiits = [a for a in twiits['statuses'] if not 'retweeted_status' in a]
 
-jsonp = 'callback(' + json.dumps(good_twiits) + ')'
+jsonp = 'callback(' + json.dumps(good_twiits) + ');'
 
 with open('tweets.jsonp', 'w') as f:
     api_token = f.write(jsonp)
